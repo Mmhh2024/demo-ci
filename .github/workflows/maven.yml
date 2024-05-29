@@ -19,7 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: step un
-      run: echo message test ${{ secrets.LE_NOM_DU_SECRET }}
+      run: |
+        echo message 
+        test ${{ secrets.LE_NOM_DU_SECRET }}
   build:
 
     runs-on: ubuntu-latest
