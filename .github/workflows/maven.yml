@@ -38,11 +38,21 @@ jobs:
       env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    - name: ajout JaCoCo
-      run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+     name: Code coverage & scan SonarQube & packaging JAR
+        run: >
+          mvn
+          org.jacoco:jacoco-maven-plugin:prepare-agent
+          package
+          verify
+          org.jacoco:jacoco-maven-plugin:report
+          sonar:sonar
+          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+          -Dsonar.projectKey=jeremy
+    #- name: ajout JaCoCo
+    #  run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
+    #  env:
+    #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
 #    needs: test
 
