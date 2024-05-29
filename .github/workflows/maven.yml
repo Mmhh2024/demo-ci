@@ -35,6 +35,9 @@ jobs:
       timeout-minutes: 5
       with:
         scanMetadataReportFile: target/sonar/report-task.txt  
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     - name: ajout JaCoCo
       run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
       env:
