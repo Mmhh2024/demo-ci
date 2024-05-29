@@ -26,10 +26,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: verify_sonar
-      run: >
-        mvn clean verify sonar:sonar -Dsonar.projectKey=Hayet
-        -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-        -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      run: mvn clean verify sonar:sonar -Dsonar.projectKey=Hayet
+        #-Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        #-Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      env:
+        SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }}
+        ONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
+
+
        
 #  test2:
 #    runs-on: ubuntu-latest
