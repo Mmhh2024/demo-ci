@@ -17,8 +17,9 @@ on:
 jobs:
   test : 
     runs-on: ubuntu-latest
-      steps:
-        - run: echo message test
+    steps:
+    - name step un
+      run: echo message test
   build:
 
     runs-on: ubuntu-latest
