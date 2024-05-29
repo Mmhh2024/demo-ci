@@ -15,10 +15,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test : 
+  test:
     runs-on: ubuntu-latest
     steps:
-    - name step un
+    - name: step un
       run: echo message test
   build:
 
