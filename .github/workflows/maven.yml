@@ -28,13 +28,12 @@ jobs:
     - name: verify_sonar
       run: mvn clean verify sonar:sonar -Dsonar.projectKey=Hayet
       env:
-        SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         
         #-Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
         #-Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
-       
 #  test2:
 #    runs-on: ubuntu-latest
 #    steps:
