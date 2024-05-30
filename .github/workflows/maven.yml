@@ -103,10 +103,10 @@ jobs:
         run: >
           ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
           "
-            docker stop ajc-cintegration_hayet || true
-            docker rm ajc-ci-jeremy || true
+            docker stop ajc-ci_hayet || true
+            docker rm ajc-ci-hayet || true
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN_SERVER }}
-            docker run -d -p 8088:8080 --name ajc-ci-jeremy --pull=always mmhh990/ajc_cintegration_hayet:java
+            docker run -d -p 8088:8080 --name ajc-ci-hayet --pull=always mmhh990/ajc_cintegration_hayet:java
             exit
           "
         
